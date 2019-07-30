@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+nameko-examples-products = {editable = true,path = "./products"}
+nameko-examples-gateway = {path = "./gateway"}
+nameko-examples-orders = {editable = true,path = "./orders"}
+
+[requires]
+python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
