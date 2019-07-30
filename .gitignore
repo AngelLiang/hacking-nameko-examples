@@ -7,3 +7,4 @@ htmlcov
 *.sql
 
 .vscode/
+.pytest_cache/
