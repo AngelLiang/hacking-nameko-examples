@@ -30,7 +30,7 @@ class ProductsService:
         product = schemas.Product(strict=True).load(product).data
         self.storage.create(product)
 
-    @event_handler('orders', 'order_created')
+    @event_handler('orders', 'order_created')  # 订阅订单创建事件
     def handle_order_created(self, payload):
         for product in payload['order']['order_details']:
             self.storage.decrement_stock(

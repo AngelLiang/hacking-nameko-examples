@@ -39,6 +39,7 @@ class OrdersService:
 
         order = OrderSchema().dump(order).data
 
+        # 发布订单创建事件，参数={'order': order}
         self.event_dispatcher('order_created', {
             'order': order,
         })

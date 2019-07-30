@@ -54,6 +54,7 @@ class StorageWrapper:
             product)
 
     def decrement_stock(self, product_id, amount):
+        """减去库存"""
         return self.client.hincrby(
             self._format_key(product_id), 'in_stock', -amount)
 
