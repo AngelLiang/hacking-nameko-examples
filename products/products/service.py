@@ -32,6 +32,9 @@ class ProductsService:
 
     @event_handler('orders', 'order_created')  # 订阅订单创建事件
     def handle_order_created(self, payload):
+        """
+        使用事件驱动来更新产品库存
+        """
         for product in payload['order']['order_details']:
             self.storage.decrement_stock(
                 product['product_id'], product['quantity'])
