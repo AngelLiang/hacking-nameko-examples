@@ -52,6 +52,7 @@ def run_migrations_offline():
     script output.
 
     """
+    # 重写了 alembic 自动生成的模板
     url = get_url()
     context.configure(
         url=url, target_metadata=target_metadata, literal_binds=True)
@@ -67,6 +68,7 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
+    # 重写了 alembic 自动生成的模板
     connectable = create_engine(get_url())
 
     with connectable.connect() as connection:

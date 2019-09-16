@@ -2,6 +2,9 @@ import pytest
 
 from orders.models import DeclarativeBase
 
+TEST_DB_URL = 'sqlite:///orders.sql'
+# TEST_DB_URL = 'sqlite:///:memory:'
+
 
 @pytest.fixture(scope='session')
 def db_url():
@@ -14,7 +17,8 @@ def db_url():
 
     For more information see: https://github.com/onefinestay/nameko-sqlalchemy
     """
-    return 'sqlite:///orders.sql'
+    # return 'sqlite:///orders.sql'
+    return TEST_DB_URL
 
 
 @pytest.fixture(scope="session")
