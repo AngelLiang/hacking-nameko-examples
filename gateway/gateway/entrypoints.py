@@ -12,6 +12,7 @@ class HttpEntrypoint(HttpRequestHandler):
     """ Overrides `response_from_exception` so we can customize error handling.
     """
 
+    # http error mapping
     mapped_errors = {
         BadRequest: (400, 'BAD_REQUEST'),
         ValidationError: (400, 'VALIDATION_ERROR'),
@@ -20,6 +21,7 @@ class HttpEntrypoint(HttpRequestHandler):
     }
 
     def response_from_exception(self, exc):
+        """override"""
         status_code, error_code = 500, 'UNEXPECTED_ERROR'
 
         if isinstance(exc, self.expected_exceptions):
